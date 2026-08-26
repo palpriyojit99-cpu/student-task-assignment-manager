@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Student Task Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Task & Assignment Manager</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="welcome-section">
+            <h2>Welcome, Student! 👋</h2>
+
+            <p>
+                Manage your assignments and keep track of your academic work.
+            </p>
+
+            <button id="addTaskButton">+ Add New Task</button>
+        </section>
+
+
+        <section class="stats-section">
+
+            <h2>Task Overview</h2>
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+                    <h3 id="totalTasks">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="pendingTasks">0</h3>
+                    <p>Pending</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="completedTasks">0</h3>
+                    <p>Completed</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="tasks-section">
+
+            <h2>Upcoming Tasks</h2>
+
+            <input
+                type="text"
+                id="searchTask"
+                placeholder="Search tasks..."
+            >
+
+            <div id="taskList">
+
+                <div class="task-card">
+
+                    <h3>Physics Assignment</h3>
+
+                    <p>
+                        Complete chapter 3 numerical problems.
+                    </p>
+
+                    <p>
+                        <strong>Due:</strong> 30 August 2026
+                    </p>
+
+                    <p>
+                        <strong>Priority:</strong> High
+                    </p>
+
+                    <button>View Task</button>
+
+                </div>
+
+
+                <div class="task-card">
+
+                    <h3>C Programming Assignment</h3>
+
+                    <p>
+                        Complete the queue programming exercise.
+                    </p>
+
+                    <p>
+                        <strong>Due:</strong> 2 September 2026
+                    </p>
+
+                    <p>
+                        <strong>Priority:</strong> Medium
+                    </p>
+
+                    <button>View Task</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
