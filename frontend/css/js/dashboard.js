@@ -1,3 +1,12 @@
+// Add New Task button
+
+const addTaskButton = document.getElementById("addTaskButton");
+
+if (addTaskButton) {
+    addTaskButton.addEventListener("click", function () {
+        window.location.href = "add-task.html";
+    });
+}
 // Get the task list container
 const taskList = document.getElementById("taskList");
 
@@ -85,16 +94,3 @@ function viewTask(index) {
 // Run the functions
 displayTasks();
 updateStatistics();
-// Add New Task button
-
-const addTaskButton = document.getElementById("addTaskButton");
-
-if (addTaskButton) {
-
-    addTaskButton.addEventListener("click", function () {
-
-        window.location.href = "add-task.html";
-
-    });
-
-}
