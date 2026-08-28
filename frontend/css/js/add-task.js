@@ -1,41 +1,74 @@
 // Get the task form
 const taskForm = document.getElementById("taskForm");
 
-// Run this code only if the form exists
-if (taskForm) {
+// Check whether we are editing an existing task
+const editTaskIndex = localStorage.getItem("editTaskIndex");
 
-    taskForm.addEventListener("submit", function (event) {
+// Get the form fields
+const titleInput = document.getElementById("taskTitleInput");
+const subjectInput = document.getElementById("taskSubjectInput");
+const descriptionInput = document.getElementById("taskDescriptionInput");
+const dueDateInput = document.getElementById("taskDueDateInput");
+const priorityInput = document.getElementById("taskPriorityInput");
 
-        // Prevent the page from refreshing
-        event.preventDefault();
 
-        // Get values from the form
-        const title = document.getElementById("taskTitleInput").value;
-        const subject = document.getElementById("taskSubjectInput").value;
-        const description = document.getElementById("taskDescriptionInput").value;
-        const dueDate = document.getElementById("taskDueDateInput").value;
-        const priority = document.getElementById("taskPriorityInput").value;
+// If editing a task, load its existing information
+if (editTaskIndex !== null) {
 
-        // Create a task object
-        const newTask = {
-            title: title,
-            subject: subject,
-            description: description,
-            dueDate: dueDate,
-            priority: priority,
-            status: "Pending"
-        };
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const task = tasks[editTaskIndex];
 
-        // Get existing tasks
-        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    if (task) {
 
-        // Add the new task
-        tasks.push(newTask);
+        titleInput.value = task.title;
+        subjectInput.value = task.subject;
+        descriptionInput.value = task.description;
+        dueDateInput.value = task.dueDate;
+        priorityInput.value = task.priority;
 
-        // Save tasks
+    }
+}
+
+
+// Save or update task
+taskForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    const taskData = {
+        title: titleInput.value,
+        subject: subjectInput.value,
+        description: descriptionInput.value,
+        dueDate: dueDateInput.value,
+        priority: priorityInput.value,
+        status: "Pending"
+    };
+
+
+    // Update existing task
+    if (editTaskIndex !== null) {
+
+        tasks[editTaskIndex] = taskData;
+
         localStorage.setItem("tasks", JSON.stringify(tasks));
 
-        // Go to dashboard
-        window.location.href = "dashboard.html";
-    });
-}
+        localStorage.removeItem("editTaskIndex");
+
+    }
+
+    // Create a new task
+    else {
+
+        tasks.push(taskData);
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    }
+
+
+    // Return to dashboard
+    window.location.href = "dashboard.html";
+
+});
