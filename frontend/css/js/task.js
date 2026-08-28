@@ -2,33 +2,87 @@
 const selectedTaskIndex = localStorage.getItem("selectedTask");
 
 // Get all saved tasks
-const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// Check whether a valid task was selected
+// Get task elements
+const taskTitle = document.getElementById("taskTitle");
+const taskSubject = document.getElementById("taskSubject");
+const taskDescription = document.getElementById("taskDescription");
+const taskDueDate = document.getElementById("taskDueDate");
+const taskPriority = document.getElementById("taskPriority");
+const taskStatus = document.getElementById("taskStatus");
+
+// Get action buttons
+const completeTaskButton =
+    document.getElementById("completeTaskButton");
+
+const editTaskButton =
+    document.getElementById("editTaskButton");
+
+const deleteTaskButton =
+    document.getElementById("deleteTaskButton");
+
+
+// Check whether the selected task exists
 if (selectedTaskIndex !== null && tasks[selectedTaskIndex]) {
 
     const task = tasks[selectedTaskIndex];
 
     // Display task information
-    document.getElementById("taskTitle").textContent = task.title;
+    taskTitle.textContent = task.title;
+    taskSubject.textContent = task.subject;
+    taskDescription.textContent = task.description;
+    taskDueDate.textContent = task.dueDate;
+    taskPriority.textContent = task.priority;
+    taskStatus.textContent = task.status;
 
-    document.getElementById("taskSubject").textContent = task.subject;
 
-    document.getElementById("taskDescription").textContent =
-        task.description;
+    // Mark task as complete
+    completeTaskButton.addEventListener("click", function () {
 
-    document.getElementById("taskDueDate").textContent =
-        task.dueDate;
+        tasks[selectedTaskIndex].status = "Completed";
 
-    document.getElementById("taskPriority").textContent =
-        task.priority;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
 
-    document.getElementById("taskStatus").textContent =
-        task.status;
+        taskStatus.textContent = "Completed";
+
+        alert("Task marked as completed!");
+
+    });
+
+
+    // Delete task
+    deleteTaskButton.addEventListener("click", function () {
+
+        const confirmDelete =
+            confirm("Are you sure you want to delete this task?");
+
+        if (confirmDelete) {
+
+            tasks.splice(selectedTaskIndex, 1);
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
+            localStorage.removeItem("selectedTask");
+
+            alert("Task deleted successfully!");
+
+            window.location.href = "dashboard.html";
+        }
+
+    });
+
+
+    // Edit task
+    editTaskButton.addEventListener("click", function () {
+
+        alert("Edit feature will be added next.");
+
+    });
 
 } else {
 
-    // No valid task was selected
+    // No valid task found
     document.querySelector(".task-detail").innerHTML =
         "<p>Task not found.</p>";
 }
