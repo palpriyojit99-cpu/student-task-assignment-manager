@@ -1,3 +1,4 @@
+alert("Dashboard JavaScript is working!");
 // Add New Task button
 
 const addTaskButton = document.getElementById("addTaskButton");
