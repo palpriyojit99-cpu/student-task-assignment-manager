@@ -37,14 +37,20 @@ taskForm.addEventListener("submit", function (event) {
 
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    const taskData = {
-        title: titleInput.value,
-        subject: subjectInput.value,
-        description: descriptionInput.value,
-        dueDate: dueDateInput.value,
-        priority: priorityInput.value,
-        status: "Pending"
-    };
+    let taskStatus = "Pending";
+
+if (editTaskIndex !== null && tasks[editTaskIndex]) {
+    taskStatus = tasks[editTaskIndex].status;
+}
+
+const taskData = {
+    title: titleInput.value,
+    subject: subjectInput.value,
+    description: descriptionInput.value,
+    dueDate: dueDateInput.value,
+    priority: priorityInput.value,
+    status: taskStatus
+};
 
 
     // Update existing task
