@@ -72,13 +72,15 @@ if (selectedTaskIndex !== null && tasks[selectedTaskIndex]) {
 
     });
 
+// Edit task
+editTaskButton.addEventListener("click", function () {
 
-    // Edit task
-    editTaskButton.addEventListener("click", function () {
+    localStorage.setItem("editTaskIndex", selectedTaskIndex);
 
-        alert("Edit feature will be added next.");
+    window.location.href = "add-task.html";
 
-    });
+});
+  
 
 } else {
 
