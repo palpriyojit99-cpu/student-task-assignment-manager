@@ -33,15 +33,35 @@ const showPending = document.getElementById("showPending");
 const showCompleted = document.getElementById("showCompleted");
 
 
-// Get saved tasks from localStorage
+// Store tasks received from the backend
+let tasks = [];
 
-const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 
 // Current filter
 
 let currentFilter = "All";
+// Load tasks from backend API
+async function loadTasks() {
+    try {
+        const response = await fetch("http://localhost:3000/api/tasks");
 
+        if (!response.ok) {
+            throw new Error("Failed to load tasks");
+        }
+
+        tasks = await response.json();
+
+        displayTasks();
+        updateStatistics();
+
+    } catch (error) {
+        console.error("Error loading tasks:", error);
+
+        taskList.innerHTML =
+            "<p>Unable to load tasks. Please make sure the backend is running.</p>";
+    }
+}
 
 // Display tasks
 
@@ -192,6 +212,4 @@ searchTask.addEventListener("input", function () {
 
 // Run functions
 
-displayTasks();
-
-updateStatistics();
+loadTasks();
