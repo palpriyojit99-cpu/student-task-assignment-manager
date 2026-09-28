@@ -1,0 +1,25 @@
+[32m✔ creates a valid authentication token [90m(43.678541ms)[39m[39m
+[32m✔ verifies a valid authentication token [90m(10.195833ms)[39m[39m
+[32m✔ rejects an invalid authentication token [90m(4.914792ms)[39m[39m
+[32m✔ rejects a token signed with the wrong secret [90m(5.351615ms)[39m[39m
+[32m✔ accepts a valid task form [90m(11.229375ms)[39m[39m
+[32m✔ rejects an empty title [90m(1.407292ms)[39m[39m
+[32m✔ rejects an empty subject [90m(1.119323ms)[39m[39m
+[32m✔ accepts valid priority [90m(0.958333ms)[39m[39m
+[32m✔ rejects invalid priority [90m(1.562552ms)[39m[39m
+[32m✔ accepts a valid task title [90m(13.438854ms)[39m[39m
+[32m✔ rejects an empty task title [90m(1.245625ms)[39m[39m
+[32m✔ accepts a valid subject [90m(1.363125ms)[39m[39m
+[32m✔ rejects an empty subject [90m(1.80401ms)[39m[39m
+[32m✔ accepts valid priority values [90m(1.561511ms)[39m[39m
+[32m✔ rejects an invalid priority [90m(1.272708ms)[39m[39m
+[32m✔ accepts valid status values [90m(1.379584ms)[39m[39m
+[32m✔ rejects an invalid status [90m(1.202604ms)[39m[39m
+[34mℹ tests 17[39m
+[34mℹ suites 0[39m
+[34mℹ pass 17[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 1578.272655[39m

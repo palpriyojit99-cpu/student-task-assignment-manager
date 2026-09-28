@@ -1,0 +1,12 @@
+Starting API tests...
+
+PASS: Login
+PASS: GET all tasks
+PASS: GET single task
+PASS: POST create task
+PASS: PUT update task
+PASS: DELETE task
+PASS: 404 for nonexistent task
+PASS: Reject invalid login
+
+All API tests passed successfully! 🎉

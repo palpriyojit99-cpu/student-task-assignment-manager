@@ -1,0 +1,13 @@
+[32m✔ accepts a valid task form [90m(11.746927ms)[39m[39m
+[32m✔ rejects an empty title [90m(1.683333ms)[39m[39m
+[32m✔ rejects an empty subject [90m(1.11ms)[39m[39m
+[32m✔ accepts valid priority [90m(0.944531ms)[39m[39m
+[32m✔ rejects invalid priority [90m(1.301927ms)[39m[39m
+[34mℹ tests 5[39m
+[34mℹ suites 0[39m
+[34mℹ pass 5[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 1042.687864[39m

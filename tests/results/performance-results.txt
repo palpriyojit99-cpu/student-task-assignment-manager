@@ -1,0 +1,7 @@
+Starting performance test...
+
+GET all tasks: 18.11 ms
+GET single existing task: 16.16 ms
+Authenticated login: 15.25 ms
+
+Performance test completed successfully.
