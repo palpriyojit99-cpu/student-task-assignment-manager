@@ -4,6 +4,7 @@
   "description": "Backend API for Student Task and Assignment Manager",
   "main": "server.js",
  "scripts": {
+  "start": "node server.js",
   "test": "node --test ../tests/unit/*.test.js"
 },
   "keywords": [],

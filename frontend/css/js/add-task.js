@@ -28,7 +28,7 @@ async function loadTaskForEdit() {
     try {
 
         const response = await fetch(
-            `http://localhost:3000/api/tasks/${editTaskId}`,
+            `${API_BASE_URL}/api/tasks/${editTaskId}`,
             {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -78,7 +78,7 @@ taskForm.addEventListener("submit", async function (event) {
         if (editTaskId) {
 
             response = await fetch(
-                `http://localhost:3000/api/tasks/${editTaskId}`,
+                `${API_BASE_URL}/api/tasks/${editTaskId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -95,7 +95,7 @@ taskForm.addEventListener("submit", async function (event) {
         else {
 
             response = await fetch(
-                "http://localhost:3000/api/tasks",
+                `${API_BASE_URL}/api/tasks`,
                 {
                     method: "POST",
                     headers: {

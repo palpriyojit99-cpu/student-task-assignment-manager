@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -223,6 +223,13 @@ app.delete("/api/tasks/:id", authenticateToken, async (req, res) => {
 });
 
 // Home route
+app.get("/health", (req, res) => {
+    res.json({
+        status: "ok",
+        service: "Student Task & Assignment Manager API"
+    });
+});
+
 app.get("/", (req, res) => {
     res.json({
         message: "Student Task & Assignment Manager API is running!"
@@ -230,6 +237,6 @@ app.get("/", (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
